@@ -110,6 +110,10 @@ const data = {
     { word: "May", next: "start2" }
   ],
   
+  things: [
+    { word: 'wood', next: 'start2'},
+  ],
+
   start2: [
     { word: 'eat', next: 'things2' },
     { word: 'fuck', next: 'people2' },
