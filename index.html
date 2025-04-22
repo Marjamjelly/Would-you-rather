@@ -274,15 +274,22 @@
     }
 
     // Main function to generate the sentence
-    function generateSentence() {
-      const firstChoice = pickRandom(data.start);
-      const secondChoice = pickRandom(data[firstChoice.next]);
-      const thirdChoice = pickRandom(data[secondChoice.next]);
-      const fourthChoice = pickRandom(data[thirdChoice.next]);
+   // Main function to generate the sentence
+  function generateSentence() {
+    const firstChoice = pickRandom(data.start);
+    const secondChoice = pickRandom(data[firstChoice.next]);
+    const thirdChoice = pickRandom(data[secondChoice.next]);
+    const fourthChoice = pickRandom(data[thirdChoice.next]);
 
-      const sentence = `Would you rather ${firstChoice.word} ${secondChoice.word} or ${thirdChoice.word} ${fourthChoice}?`;
-      document.getElementById('result').textContent = sentence;
-    }
+    const sentence = `
+      <strong>Would you rather</strong><br>
+      ${firstChoice.word} ${secondChoice.word}<br>
+      OR<br>
+      ${thirdChoice.word} ${fourthChoice.word}.
+    `;
+    document.getElementById('result').innerHTML = sentence;
+  }
+
 
     // Event listener to trigger sentence generation on button click
     document.getElementById('generate').addEventListener('click', generateSentence);
