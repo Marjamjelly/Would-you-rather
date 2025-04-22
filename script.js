@@ -1,35 +1,52 @@
-// TEMPLATE: You can edit the `data` object below to change the generator logic
+// Example Data Structure (Editable)
 const data = {
-  start: ['dragon', 'wizard', 'robot'],
-  dragon: ['fire', 'ice', 'shadow'],
-  wizard: ['arcane', 'necromantic', 'elemental'],
-  robot: ['steel', 'plasma', 'quantum'],
-  fire: ['mountain', 'volcano'],
-  ice: ['glacier', 'tundra'],
-  shadow: ['cave', 'forest'],
-  arcane: ['tower', 'library'],
-  necromantic: ['graveyard', 'crypt'],
-  elemental: ['storm', 'rift'],
-  steel: ['factory', 'fortress'],
-  plasma: ['reactor', 'spaceship'],
-  quantum: ['lab', 'dimension']
+  start: [
+      { word: 'dog', next: 'bark' },
+      { word: 'cat', next: 'meow' },
+      { word: 'bird', next: 'chirp' },
+  ],
+  bark: [
+      { word: 'loudly', next: 'final' },
+      { word: 'softly', next: 'final' },
+      { word: 'frenzied', next: 'final' },
+  ],
+  meow: [
+      { word: 'mildly', next: 'final' },
+      { word: 'angrily', next: 'final' },
+      { word: 'playfully', next: 'final' },
+  ],
+  chirp: [
+      { word: 'melodiously', next: 'final' },
+      { word: 'harshly', next: 'final' },
+      { word: 'softly', next: 'final' },
+  ],
+  final: [
+      'a dog in a park',
+      'a cat in a house',
+      'a bird in the sky',
+  ]
 };
 
-const templates = {
-  final: (start, second, third) => `The ${start} used ${second} magic in the ${third}.`
-};
+// Pick a random element from an array
+function pickRandom(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
 
-function generate() {
-  let first = randomPick(data.start);
-  let second = randomPick(data[first]);
-  let third = randomPick(data[second]);
+// Main function to generate the sentence
+function generateSentence() {
+  // First choice (e.g., dog, cat, bird)
+  const firstChoice = pickRandom(data.start);
+  
+  // Second choice (based on first choice - e.g., bark, meow, chirp)
+  const secondChoice = pickRandom(data[firstChoice.next]);
+  
+  // Final sentence construction
+  const finalChoice = pickRandom(data.final);
 
-  let sentence = templates.final(first, second, third);
+  // Display the sentence
+  const sentence = `A ${firstChoice.word} that does ${secondChoice.word} is seen ${finalChoice}.`;
   document.getElementById('result').textContent = sentence;
 }
 
-function randomPick(array) {
-  return array[Math.floor(Math.random() * array.length)];
-}
-
-document.getElementById('generateBtn').addEventListener('click', generate);
+// Event listener to trigger sentence generation on button click
+document.getElementById('generate').addEventListener('click', generateSentence);
