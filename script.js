@@ -243,7 +243,7 @@ function generateSentence() {
   const thirdChoice = pickRandom(data[secondChoice.next]);
   const fourthChoice = pickRandom(data[thirdChoice.next]);
 
-  const sentence = `Would you rather ${firstChoice.word}  ${secondChoice.word} or ${thirdChoice.word}.`;
+  const sentence = `Would you rather ${firstChoice.word}  ${secondChoice.word} or ${thirdChoice.word} ${fourthChoice.word}.`;
   document.getElementById('result').textContent = sentence;
 }
 
