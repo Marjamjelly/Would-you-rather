@@ -289,10 +289,14 @@
     `;
     document.getElementById('result').innerHTML = sentence;
   }
-
-
     // Event listener to trigger sentence generation on button click
-    document.getElementById('generate').addEventListener('click', generateSentence);
+  document.getElementById('generate').addEventListener('click', generateSentence);
+    
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+      generateSentence();
+    }
+  });
   </script>
 </body>
 </html>
