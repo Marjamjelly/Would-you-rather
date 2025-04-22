@@ -5,38 +5,60 @@
   box-sizing: border-box;
 }
 
+/* Body Styling */
 body {
   font-family: 'Courier New', Courier, monospace;
-  background-color: #1e1e1e;
-  color: #00ff00;
+  background-color: #121212; /* Dark background */
+  color: #E0E0E0; /* Light text color */
+  height: 100vh; /* Full height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   padding: 20px;
 }
 
+/* Container for Content */
 .container {
-  text-align: center;
+  background-color: #1E1E1E; /* Slightly lighter dark background */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+  width: 80%;
+  max-width: 600px; /* Limit container width */
 }
 
+/* Heading Style */
 h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
+  color: #76C7FF; /* Light blue for headings */
+  font-weight: bold;
 }
 
+/* Button Styling */
 button {
-  background-color: #333;
-  color: #00ff00;
+  background-color: #333; /* Dark button background */
+  color: #76C7FF; /* Light blue text */
   font-size: 1.2rem;
-  padding: 10px 20px;
+  padding: 15px 30px;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
+  font-weight: bold;
 }
 
+/* Button Hover Effects */
 button:hover {
   background-color: #444;
+  transform: scale(1.05); /* Slightly enlarge the button */
 }
 
+/* Result Text */
 #result {
   margin-top: 20px;
   font-size: 1.5rem;
-  color: #00ff00;
+  color: #A8FF80; /* Light green color for the result */
+  font-weight: normal;
 }
